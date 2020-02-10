@@ -1,0 +1,20 @@
+{
+  "name": "imooc-webpack-lession",
+  "version": "1.0.0",
+  "description": "learning webpack from imooc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjshinning/imooc-webpack-lession.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjshinning/imooc-webpack-lession/issues"
+  },
+  "homepage": "https://github.com/cjshinning/imooc-webpack-lession#readme"
+}
