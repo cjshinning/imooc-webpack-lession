@@ -5,3 +5,5 @@ function Content(){
     content.innerHTML = 'content';
     dom.append(content);
 }
+
+export default Content;

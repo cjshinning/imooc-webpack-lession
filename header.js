@@ -5,3 +5,5 @@ function Header(){
     header.innerHTML = 'header';
     dom.append(header);
 }
+
+export default Header;

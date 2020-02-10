@@ -5,3 +5,5 @@ function SideBar(){
     sideBar.innerHTML = 'sideBar';
     dom.append(sideBar);
 }
+
+export default SideBar;
