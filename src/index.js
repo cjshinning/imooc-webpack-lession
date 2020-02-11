@@ -1,13 +1,8 @@
-// ES Module 模块引入方式
-// webpack 模块打包工具
-// import Header from './header.js';
-// import SideBar from './sidebar.js';
-// import Content from './content.js';
+// 使用loader可以帮助webpack打包除了javascript的其他静态资源
+import avatar from './avatar.jpg';
 
-var Header = require('./header.js');
-var SideBar = require('./sidebar.js');
-var Content = require('./content.js');
+var img = new Image();
+img.src = avatar;
 
-new Header();
-new SideBar();
-new Content();
+var root = document.getElementById('root');
+root.append(img);
