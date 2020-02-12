@@ -20,6 +20,20 @@ module.exports = {
                         limit: 10240
                     }
                 }
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    'style-loader',
+                    {
+                      loader: 'css-loader',
+                      options: {
+                        importLoaders: 2
+                      }
+                    },
+                    'postcss-loader',
+                    'sass-loader'
+                ]
             }
         ]
     }
