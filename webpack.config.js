@@ -4,9 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: {
+        main: './src/index.js',
+        sub: './src/index.js'
+    },
     output: {
-        filename: 'bundle.js',
+        publicPath: 'http://cdn.com.cn',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
