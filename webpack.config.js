@@ -22,14 +22,19 @@ module.exports = {
                 }
             },
             {
+                test: /\.(eot|svg|ttf|woff|woff2)$/i,
+                use: {
+                    loader: 'file-loader'
+                }
+            },
+            {
                 test: /\.scss$/i,
                 use: [
                     'style-loader',
                     {
                       loader: 'css-loader',
                       options: {
-                        importLoaders: 2,
-                        modules: true
+                        importLoaders: 2
                       }
                     },
                     'postcss-loader',
