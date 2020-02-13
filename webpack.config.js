@@ -4,12 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
+    // 开发环境 cheap-module-eval-source-map
+    // 线上环境 cheap-module-source-map
+    devtool: 'cheap-module-eval-source-map',
     entry: {
-        main: './src/index.js',
-        sub: './src/index.js'
+        main: './src/index.js'
     },
     output: {
-        publicPath: 'http://cdn.com.cn',
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
