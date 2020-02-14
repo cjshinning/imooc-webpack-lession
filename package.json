@@ -4,10 +4,7 @@
   "description": "learning webpack from imooc",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server",
-    "server": "node server.js"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
