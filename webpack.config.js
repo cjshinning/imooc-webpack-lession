@@ -3,6 +3,28 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
+
+// 写入babelrc里后不需要再配置options
+// options: {
+// 编写业务代码使用presets
+// 'presets': [['@babel/preset-env', {
+//     "targets": {
+//         "chrome": "67",
+//     },
+//     'useBuiltIns': 'usage'
+// }]]
+// 编写类库时使用runtime
+// "plugins": [[
+//     "@babel/plugin-transform-runtime",
+//     {
+//       "corejs": 2,
+//       "helpers": true,
+//       "regenerator": true,
+//       "useESModules": false
+//     }
+//   ]]
+// }
+
 module.exports = {
     mode: 'development',
     // 开发环境 cheap-module-eval-source-map
@@ -26,12 +48,7 @@ module.exports = {
             { 
                 test: /\.js$/, 
                 exclude: /node_modules/, 
-                loader:  'babel-loader' ,
-                options: {
-                    'presets': [['@babel/preset-env', {
-                        'useBuiltIns': 'usage'
-                    }]]
-                }
+                loader:  'babel-loader',
             },
             {
                 test: /\.(jpg|png|gif)$/i,
