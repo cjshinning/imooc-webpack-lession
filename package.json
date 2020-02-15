@@ -1,5 +1,6 @@
 {
   "name": "imooc-webpack-lession",
+  "sideEffects": false,
   "version": "1.0.0",
   "description": "learning webpack from imooc",
   "main": "index.js",
