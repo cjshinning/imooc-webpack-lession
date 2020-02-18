@@ -4,6 +4,7 @@
             "targets": {
                 "chrome": "67",
             },
+            "corejs": "2",
             "useBuiltIns": "usage"
         }],
         "@babel/preset-react"
