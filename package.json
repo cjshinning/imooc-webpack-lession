@@ -5,7 +5,8 @@
   "description": "learning webpack from imooc",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js",
+    "build": "webpack --config ./build/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -44,7 +45,8 @@
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
