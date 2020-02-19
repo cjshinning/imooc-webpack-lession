@@ -69,19 +69,23 @@ module.exports = {
             chunks: 'all',
             minSize: 30000,
             // minRemainingSize: 0,
-            maxSize: 0,
+            maxSize: 30000, //50kb, lodash 1mb
             minChunks: 1,
             maxAsyncRequests: 6,
             maxInitialRequests: 4,
             automaticNameDelimiter: '~',
             automaticNameMaxLength: 30,
             cacheGroups: {
-            defaultVendors: {
-                test: /[\\/]node_modules[\\/]/,
-                priority: -10,
-                filename: 'vendors.js'
-              },
-              default: false
+                defaultVendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                    filename: 'vendors.js'
+                },
+                default:  {
+                    priority: -20,
+                    reuseExistingChunk: true,
+                    filename: 'common.js'
+                }
             }
         }
     }

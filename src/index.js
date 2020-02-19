@@ -1,4 +1,9 @@
+// import test from './test.js';
+// console.log(test.name);
+
+
 import _ from 'lodash';
+import $ from "jquery";
 
 let element = document.createElement('div');
 element.innerHTML = _.join(['Jenny', 'Chan'], '-');
