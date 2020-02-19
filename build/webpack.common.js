@@ -64,9 +64,25 @@ module.exports = {
         }), 
         new CleanWebpackPlugin()
     ],
-    // optimization: {
-    //     splitChunks: {
-    //         chunks: 'all'
-    //     }
-    // }
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 30000,
+            // minRemainingSize: 0,
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 6,
+            maxInitialRequests: 4,
+            automaticNameDelimiter: '~',
+            automaticNameMaxLength: 30,
+            cacheGroups: {
+            defaultVendors: {
+                test: /[\\/]node_modules[\\/]/,
+                priority: -10,
+                filename: 'vendors.js'
+              },
+              default: false
+            }
+        }
+    }
 }
