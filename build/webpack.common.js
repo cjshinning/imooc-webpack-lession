@@ -76,10 +76,10 @@ module.exports = {
             automaticNameDelimiter: '~',
             automaticNameMaxLength: 30,
             cacheGroups: {
-                defaultVendors: {
+                vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10,
-                    filename: 'vendors.js'
+                    name: 'vendors.js'
                 },
                 default:  {
                     priority: -20,
