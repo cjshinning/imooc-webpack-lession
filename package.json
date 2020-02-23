@@ -1,6 +1,8 @@
 {
   "name": "imooc-webpack-lession",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "1.0.0",
   "description": "learning webpack from imooc",
   "main": "index.js",
@@ -39,7 +41,9 @@
     "express": "^4.17.1",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",

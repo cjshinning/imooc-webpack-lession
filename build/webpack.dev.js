@@ -10,12 +10,34 @@ const devConfig = {
         open: true,
         hot: true
     },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/i,
+                use: [
+                    'style-loader',
+                    {
+                      loader: 'css-loader',
+                      options: {
+                        importLoaders: 2
+                      }
+                    },
+                    'postcss-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
+        ]
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
-    ],
-    optimization: {
-        usedExports: true
-    }
+    ]
 }
 
 module.exports = merge(commonConfig, devConfig);

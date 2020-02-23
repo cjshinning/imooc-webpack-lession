@@ -1,6 +1,17 @@
-document.addEventListener('click', ()=>{
-    import(/* webpackPrefetch: true */ './click.js').then(({default: func}) => {
-        func();
-    })
-})
+// async function getComponent(){
+//     const { default: _ } = await import(/* webpackChunkName:'lodash' */ 'lodash');
+//     let element = document.createElement('div');
+//     element.innerHTML = _.join(['Jenny', 'Chan'], '-');
+//     return element;
+// }
 
+// document.addEventListener('click', ()=>{
+//     getComponent().then(element => {
+//         document.body.appendChild(element);
+//     })
+// })
+
+import './style.css';
+import './style1.css';
+
+console.log('hello world');

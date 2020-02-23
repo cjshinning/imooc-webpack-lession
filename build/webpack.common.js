@@ -8,6 +8,7 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
+        chunkFilename: '[name].chunk.js',
         path: path.resolve(__dirname, '../dist')
     },
     module: {
@@ -34,27 +35,6 @@ module.exports = {
                 use: {
                     loader: 'file-loader'
                 }
-            },
-            {
-                test: /\.scss$/i,
-                use: [
-                    'style-loader',
-                    {
-                      loader: 'css-loader',
-                      options: {
-                        importLoaders: 2
-                      }
-                    },
-                    'postcss-loader',
-                    'sass-loader'
-                ]
-            },
-            {
-                test: /\.css$/i,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
             }
         ]
     },
@@ -64,29 +44,29 @@ module.exports = {
         }), 
         new CleanWebpackPlugin()
     ],
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-            minSize: 30000,
-            // minRemainingSize: 0,
-            maxSize: 30000, //50kb, lodash 1mb
-            minChunks: 1,
-            maxAsyncRequests: 6,
-            maxInitialRequests: 4,
-            automaticNameDelimiter: '~',
-            automaticNameMaxLength: 30,
-            cacheGroups: {
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10,
-                    name: 'vendors.js'
-                },
-                default:  {
-                    priority: -20,
-                    reuseExistingChunk: true,
-                    filename: 'common.js'
-                }
-            }
-        }
-    }
+    // optimization: {
+    //     splitChunks: {
+    //         chunks: 'all',
+    //         minSize: 30000,
+    //         // minRemainingSize: 0,
+    //         maxSize: 30000, //50kb, lodash 1mb
+    //         minChunks: 1,
+    //         maxAsyncRequests: 6,
+    //         maxInitialRequests: 4,
+    //         automaticNameDelimiter: '~',
+    //         automaticNameMaxLength: 30,
+    //         cacheGroups: {
+    //             vendors: {
+    //                 test: /[\\/]node_modules[\\/]/,
+    //                 priority: -10,
+    //                 name: 'vendors.js'
+    //             },
+    //             default:  {
+    //                 priority: -20,
+    //                 reuseExistingChunk: true,
+    //                 filename: 'common.js'
+    //             }
+    //         }
+    //     }
+    // }
 }
