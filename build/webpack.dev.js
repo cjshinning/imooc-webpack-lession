@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js');
+const path = require('path');
 
 const devConfig = {
     mode: 'development',
@@ -9,6 +10,11 @@ const devConfig = {
         contentBase: './dist',
         open: true,
         hot: true
+    },
+    output: {
+        filename: '[name].js',
+        chunkFilename: '[name].js',
+        path: path.resolve(__dirname, '../dist')
     },
     module: {
         rules: [
