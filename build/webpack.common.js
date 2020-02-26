@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -10,7 +11,11 @@ module.exports = {
             { 
                 test: /\.js$/, 
                 exclude: /node_modules/, 
-                loader:  'babel-loader',
+                use: [{
+                    loader:  'babel-loader'
+                }, {
+                    loader: 'imports-loader?this=>window'
+                }]
             },
             {
                 test: /\.(jpg|png|gif)$/i,
@@ -36,7 +41,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }), 
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            _join: 'lodash'
+        })
     ],
     performance: false,
     optimization: {
