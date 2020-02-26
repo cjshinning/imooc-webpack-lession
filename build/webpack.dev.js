@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+const merge = require('webpack-merge');
+const commonCofig = require('./webpack.common');
 
 const devConfig = {
     mode: 'development',
@@ -44,4 +46,4 @@ const devConfig = {
     ]
 }
 
-module.exports = devConfig;
+module.exports = merge(commonCofig, devConfig);
