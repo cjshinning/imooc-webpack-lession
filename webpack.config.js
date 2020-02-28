@@ -42,6 +42,7 @@ module.exports = {
         open: true,
         hot: true,
         hotOnly: true,
+        historyApiFallback: true,
         proxy: {
             '/react/api': {
                 target: 'http://www.dell-lee.com',
