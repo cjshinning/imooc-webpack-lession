@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './home';
 import List from './list';
 
-class App extends Component{
-    render(){
-        return (
-            <BrowserRouter>
-                <div>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/list" exact component={List}/>
-                </div>
-            </BrowserRouter>
-        )
-    }
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Route path="/" exact component={Home} />
+          <Route path="/list" exact component={List} />
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
-ReactDom.render(<App/>, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('root'));

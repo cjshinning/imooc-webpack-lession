@@ -39,6 +39,7 @@ module.exports = {
     },
     devServer: {
         contentBase: './dist',
+        overlay: true,
         open: true,
         hot: true,
         hotOnly: true,
@@ -63,7 +64,12 @@ module.exports = {
             { 
                 test: /\.js$/, 
                 exclude: /node_modules/, 
-                loader:  'babel-loader',
+                use: ['babel-loader', {
+                    loader: 'eslint-loader',
+                    options: {
+                        fix: true
+                    }
+                }]
             },
             {
                 test: /\.(jpg|png|gif)$/i,
