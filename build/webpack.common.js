@@ -5,30 +5,43 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 
-const plugins = [
-    new HtmlWebpackPlugin({
-        template: './src/index.html'
-    }), 
-    new CleanWebpackPlugin()
-]
+const makePlugins = (configs) => {
+    const plugins = [
+        new CleanWebpackPlugin()
+    ];
 
-const files = fs.readdirSync(path.resolve(__dirname, '../dll'));
-files.forEach(file => {
-    if(/.*\.dll.js/.test(file)) {
-        plugins.push(new AddAssetWebpackHtmlPlugin({
-            filepath: path.resolve(__dirname, '../dll', file)
-        }));
-    }
-    if(/.*\.manifest.json/.test(file)) {
-        plugins.push(new webpack.DllReferencePlugin({
-            manifest: path.resolve(__dirname, '../dll', file)
-        }));
-    }
-})
+    Object.keys(configs.entry).forEach(item => {
+        plugins.push(
+            new HtmlWebpackPlugin({
+                template: './src/index.html',
+                filename: `${item}.html`,
+                chunks: ['vendors', item]
+            }), 
+        )
+    })
+        
+    const files = fs.readdirSync(path.resolve(__dirname, '../dll'));
+    files.forEach(file => {
+        if(/.*\.dll.js/.test(file)) {
+            plugins.push(new AddAssetWebpackHtmlPlugin({
+                filepath: path.resolve(__dirname, '../dll', file)
+            }));
+        }
+        if(/.*\.manifest.json/.test(file)) {
+            plugins.push(new webpack.DllReferencePlugin({
+                manifest: path.resolve(__dirname, '../dll', file)
+            }));
+        }
+    })
 
-module.exports = {
+    return plugins;
+}
+
+const configs = {
     entry: {
-        main: './src/index.js'
+        index: './src/index.js',
+        list: './src/list.js',
+        detail: './src/detail.js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -62,7 +75,6 @@ module.exports = {
             }
         ]
     },
-    plugins: plugins,
     performance: false,
     optimization: {
         usedExports: true,
@@ -77,4 +89,8 @@ module.exports = {
             }
         }
     }
-}
+};
+
+configs.plugins = makePlugins(configs);
+
+module.exports = configs;
