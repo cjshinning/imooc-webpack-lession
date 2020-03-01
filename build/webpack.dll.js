@@ -4,7 +4,9 @@ const webpack = require('webpack');
 module.exports = {
     mode: 'production',
     entry: {
-        vendors: ['react', 'react-dom', 'lodash']
+        vendors: ['lodash'],
+        react: ['react', 'react-dom'],
+        jquery: ['jquery']
     },
     output: {
         filename: '[name].dll.js',
