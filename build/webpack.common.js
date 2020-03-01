@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const AddAssetWebpackHtmlPlugin = require('add-asset-html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -7,10 +8,7 @@ module.exports = {
         main: './src/index.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
-        alias: {
-            child: path.resolve(__dirname, '../src/a/b/c/child')
-        }
+        extensions: ['.js', '.jsx']
     },
     module: {
         rules: [
@@ -46,6 +44,12 @@ module.exports = {
             template: './src/index.html'
         }), 
         new CleanWebpackPlugin(),
+        new AddAssetWebpackHtmlPlugin({
+            filepath: path.resolve(__dirname, '../dll/vendors.dll.js')
+        }),
+        new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, '../dll/vendors.manifest.json')
+        })
     ],
     performance: false,
     optimization: {
